@@ -37,3 +37,21 @@ async function fetchPlaylists() {
     const data = await response.json();
     return data.items || [];
 }
+
+// Muestra las playlists en la página
+async function showPlaylists() {
+    const playlists = await fetchPlaylists();
+    const container = document.getElementById('playlists');
+    if (!container) return;
+    container.innerHTML = '';
+    playlists.forEach(playlist => {
+        const div = document.createElement('div');
+        div.textContent = playlist.name;
+        container.appendChild(div);
+    });
+}
+
+// Llama a la función si el usuario está autenticado
+if (localStorage.getItem('access_token')) {
+    showPlaylists();
+}
