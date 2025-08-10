@@ -45,9 +45,9 @@ async function showPlaylists() {
     if (!container) return;
     container.innerHTML = '';
     playlists.forEach(playlist => {
-        const div = document.createElement('div');
-        div.textContent = playlist.name;
-        container.appendChild(div);
+        const li = document.createElement('li');
+        li.textContent = playlist.name;
+        container.appendChild(li);
     });
 }
 
