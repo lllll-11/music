@@ -1,5 +1,5 @@
 const clientId = '708f3288c5d849948098b9a90df44967'; // Reemplaza con tu Client ID
-const redirectUri = 'https://lllll-11.github.io/tralalerotralala/src/index.html'; // URL de GitHub Pages
+const redirectUri = 'https://lllll-11.github.io/music'; // URL de GitHub Pages
 const scopes = 'user-read-private playlist-read-private streaming';
 
 function authenticateUser() {
