@@ -3,7 +3,7 @@ const redirectUri = 'https://lllll-11.github.io/music'; // URL de GitHub Pages
 const scopes = 'user-read-private playlist-read-private streaming';
 
 function authenticateUser() {
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
+    const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
     window.location = authUrl;
 }
 
