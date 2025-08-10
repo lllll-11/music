@@ -17,13 +17,31 @@ function getAccessTokenFromUrl() {
     return null;
 }
 
+function getCodeFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('code');
+}
+
+async function exchangeCodeForToken(code) {
+    const response = await fetch('http://localhost:3000/get-token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+    });
+    const data = await response.json();
+    return data.access_token;
+}
+
 // Guarda el token en localStorage
-(function () {
-    const token = getAccessTokenFromUrl();
-    if (token) {
-        localStorage.setItem('access_token', token);
-        window.location.hash = '';
-        window.location.reload();
+(async function () {
+    const code = getCodeFromUrl();
+    if (code) {
+        const token = await exchangeCodeForToken(code);
+        if (token) {
+            localStorage.setItem('access_token', token);
+            window.location.search = '';
+            window.location.reload();
+        }
     }
 })();
 
