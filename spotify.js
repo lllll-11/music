@@ -1,4 +1,4 @@
-const clientId = '708f3288c5d849948098b9a90df44967'; // Reemplaza con tu Client ID
+const clientId = 'b634745c74f44bc3b20f4f751ed6cc24'; // Reemplaza con tu Client ID
 const redirectUri = 'https://lllll-11.github.io/music'; // URL de GitHub Pages
 const scopes = 'user-read-private playlist-read-private streaming';
 
