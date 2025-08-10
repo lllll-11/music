@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player App</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<style> 
+:root {
+    --spotify-green: #1db954;
+    --spotify-black: #191414;
+    --spotify-gray: #282828;
+    --spotify-white: #fff;
+    --spotify-light-gray: #b3b3b3;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: var(--spotify-black);
+    color: var(--spotify-white);
+    min-height: 100vh;
+}
+
+header {
+    background: var(--spotify-gray);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+#connectSpotify {
+    background: var(--spotify-green);
+    color: var(--spotify-black);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#connectSpotify:hover {
+    background: #1ed760;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+#playlistContainer {
+    background: var(--spotify-gray);
+    padding: 1.5rem;
+    border-radius: 20px;
+    min-width: 300px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+#playlistContainer h2 {
+    margin-top: 0;
+    color: var(--spotify-green);
+    font-size: 1.5rem;
+}
+
+#playlists {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+#playlists li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--spotify-light-gray);
+    color: var(--spotify-white);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#playlists li:hover {
+    color: var(--spotify-green);
+}
+
+#playerControls {
+    background: var(--spotify-gray);
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+#playerControls button {
+    background: var(--spotify-green);
+    color: var(--spotify-black);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.2rem 0;
+    transition: background 0.2s;
+}
+
+#playerControls button:hover {
+    background: #1ed760;
+}
+
+@media (max-width: 800px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #playlistContainer, #playerControls {
+        min-width: unset;
+        margin-bottom: 2rem;
+    }
+}
+    </style>
+<body>
+    <header>
+        <h1>Welcome to the Music Player</h1>
+        <button id="login-button">Connect to Spotify</button>
+    </header>
+    <main>
+        <div id="playlistContainer">
+            <h2>Your Playlists</h2>
+            <ul id="playlists"></ul>
+        </div>
+        <div id="playerControls">
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="next">Next</button>
+            <button id="previous">Previous</button>
+        </div>
+    </main>
+    <script src="spotify.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
